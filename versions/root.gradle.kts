@@ -1,8 +1,8 @@
-import gg.essential.gradle.util.*
+import cc.polyfrost.gradle.util.*
 
 plugins {
-    id("gg.essential.multi-version.root")
-    id("gg.essential.multi-version.api-validation")
+    id("cc.polyfrost.multi-version.root")
+    id("cc.polyfrost.multi-version.api-validation")
 }
 
 version = versionFromBuildIdAndBranch()
@@ -16,6 +16,8 @@ preprocess {
     val forge11602 = createNode("1.16.2-forge", 11602, "srg")
     val forge11502 = createNode("1.15.2-forge", 11502, "srg")
     val forge11202 = createNode("1.12.2-forge", 11202, "srg")
+    val fabric11202 = createNode("1.12.2-fabric", 11202, "yarn")
+    val fabric10809 = createNode("1.8.9-fabric", 10809, "yarn")
     val forge10809 = createNode("1.8.9-forge", 10809, "srg")
 
     forge11801.link(fabric11801)
@@ -25,7 +27,9 @@ preprocess {
     fabric11602.link(forge11602)
     forge11602.link(forge11502)
     forge11502.link(forge11202, file("1.15.2-1.12.2.txt"))
+    fabric11202.link(forge11202)
     forge11202.link(forge10809, file("1.12.2-1.8.9.txt"))
+    fabric10809.link(forge10809)
 }
 
 apiValidation {

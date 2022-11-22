@@ -1,12 +1,12 @@
-import gg.essential.gradle.multiversion.StripReferencesTransform.Companion.registerStripReferencesAttribute
-import gg.essential.gradle.util.*
-import gg.essential.gradle.util.RelocationTransform.Companion.registerRelocationAttribute
+import cc.polyfrost.gradle.multiversion.StripReferencesTransform.Companion.registerStripReferencesAttribute
+import cc.polyfrost.gradle.util.*
+import cc.polyfrost.gradle.util.RelocationTransform.Companion.registerRelocationAttribute
 
 plugins {
     kotlin("jvm") version "1.6.10"
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.8.0"
     id("org.jetbrains.dokka") version "1.6.10" apply false
-    id("gg.essential.defaults")
+    id("cc.polyfrost.defaults")
 }
 
 kotlin.jvmToolchain {
@@ -42,7 +42,7 @@ dependencies {
     // Depending on LWJGL3 instead of 2 so we can choose opengl bindings only
     compileOnly("org.lwjgl:lwjgl-opengl:3.3.1")
     // Depending on 1.8.9 for all of these because that's the oldest version we support
-    compileOnly(libs.versions.universalcraft.map { "gg.essential:universalcraft-1.8.9-forge:$it" }) {
+    compileOnly(libs.versions.universalcraft.map { "cc.polyfrost:universalcraft-1.8.9-forge:$it" }) {
         attributes { attribute(common, true) }
     }
     compileOnly("com.google.code.gson:gson:2.2.4")

@@ -1,16 +1,17 @@
-import gg.essential.gradle.multiversion.excludeKotlinDefaultImpls
-import gg.essential.gradle.multiversion.mergePlatformSpecifics
-import gg.essential.gradle.util.*
+import cc.polyfrost.gradle.multiversion.excludeKotlinDefaultImpls
+import cc.polyfrost.gradle.multiversion.mergePlatformSpecifics
+import cc.polyfrost.gradle.util.*
 
 plugins {
     kotlin("jvm")
     id("org.jetbrains.dokka")
-    id("gg.essential.multi-version")
-    id("gg.essential.defaults")
-    id("gg.essential.defaults.maven-publish")
+    id("cc.polyfrost.multi-version")
+    id("cc.polyfrost.defaults")
+    id("cc.polyfrost.defaults.maven-publish")
+    `maven-publish`
 }
 
-group = "gg.essential"
+group = "cc.polyfrost"
 
 java.withSourcesJar()
 tasks.compileKotlin.setJvmDefault(if (platform.mcVersion >= 11400) "all" else "all-compatibility")
@@ -20,18 +21,23 @@ val common by configurations.creating
 configurations.compileClasspath { extendsFrom(common) }
 configurations.runtimeClasspath { extendsFrom(common) }
 
+repositories {
+    maven("https://repo.polyfrost.cc/releases")
+}
+
 dependencies {
     implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.kotlin.reflect)
     compileOnly(libs.jetbrains.annotations)
 
-    modApi(libs.versions.universalcraft.map { "gg.essential:universalcraft-$platform:$it" }) {
+    modApi(libs.versions.universalcraft.map { "cc.polyfrost:universalcraft-$platform:$it" }) {
         exclude(group = "org.jetbrains.kotlin")
     }
 
     common(project(":"))
 
     if (platform.isFabric) {
+        /*
         val fabricApiVersion = when(platform.mcVersion) {
             11404 -> "0.4.3+build.247-1.14"
             11502 -> "0.5.1+build.294-1.15"
@@ -55,6 +61,8 @@ dependencies {
             // Using this combo to add it to our deps but not to our maven publication cause it's only for the example
             modRuntime(modCompileOnly(fabricApi.module("fabric-$module", fabricApiVersion))!!)
         }
+
+         */
     }
 }
 

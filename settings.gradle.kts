@@ -1,17 +1,14 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        mavenCentral()
-        maven("https://maven.fabricmc.net")
-        maven("https://maven.architectury.dev/")
-        maven("https://maven.minecraftforge.net")
-        maven("https://repo.essential.gg/repository/maven-public")
+        mavenLocal()
+        maven("https://repo.polyfrost.cc/releases")
     }
     plugins {
-        val egtVersion = "0.1.9"
-        id("gg.essential.defaults") version egtVersion
-        id("gg.essential.multi-version.root") version egtVersion
-        id("gg.essential.multi-version.api-validation") version egtVersion
+        val egtVersion = "0.1.22"
+        id("cc.polyfrost.defaults") version egtVersion
+        id("cc.polyfrost.multi-version.root") version egtVersion
+        id("cc.polyfrost.multi-version.api-validation") version egtVersion
     }
 }
 
@@ -25,7 +22,9 @@ project(":platform").apply {
 
 listOf(
     "1.8.9-forge",
+    "1.8.9-fabric",
     "1.12.2-forge",
+    "1.12.2-fabric",
     "1.15.2-forge",
     "1.16.2-forge",
     "1.16.2-fabric",
