@@ -11,19 +11,17 @@ instead you simply have to describe _what_ you want.
 
 ## Dependency
 
-It's recommended that you include [Essential](link eventually) instead of adding it yourself.
-
 In your repository block, add:
 
 Groovy
 ```groovy
 maven {
-    url = "https://repo.essential.gg/repository/maven-public"
+    url = "https://repo.polyfrost.cc/releases"
 }
 ```
 Kotlin
 ```kotlin
-maven(url = "https://repo.essential.gg/repository/maven-public")
+maven(url = "https://repo.polyfrost.cc/releases")
 ```
 
 To use the latest builds, use the following dependency:
@@ -31,18 +29,18 @@ To use the latest builds, use the following dependency:
 <details><summary>Forge</summary>
 
 ```kotlin
-implementation("gg.essential:elementa-$mcVersion-$mcPlatform:$buildNumber")
+implementation("cc.polyfrost:elementa-$mcVersion-$mcPlatform:$buildNumber")
 ```
 </details>
 <details><summary>Fabric</summary>
 
 Groovy
 ```groovy
-modImplementation(include("gg.essential:elementa-$mcVersion-$mcPlatform:$buildNumber"))
+modImplementation(include("cc.polyfrost:elementa-$mcVersion-$mcPlatform:$buildNumber"))
 ```
 Kotlin
 ```kotlin
-modImplementation(include("gg.essential:elementa-$mcVersion-$mcPlatform:$buildNumber")!!)
+modImplementation(include("cc.polyfrost:elementa-$mcVersion-$mcPlatform:$buildNumber")!!)
 ```
 </details>
 
@@ -59,48 +57,48 @@ modImplementation(include("gg.essential:elementa-$mcVersion-$mcPlatform:$buildNu
           <td>1.18.1</td>
           <td>fabric</td>
           <td>
-            <img alt="1.18.1-fabric" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.18.1-fabric/maven-metadata.xml">
+            <img alt="1.18.1-fabric" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.18.1-fabric/maven-metadata.xml">
           </td>
         </tr>
         <tr>
           <td>1.18.1</td>
           <td>forge</td>
           <td>
-            <img alt="1.18.1-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.18.1-forge/maven-metadata.xml">
+            <img alt="1.18.1-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.18.1-forge/maven-metadata.xml">
           </td>
         </tr>
         <tr>
           <td>1.17.1</td>
           <td>fabric</td>
           <td>
-            <img alt="1.17.1-fabric" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.17.1-fabric/maven-metadata.xml">
+            <img alt="1.17.1-fabric" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.17.1-fabric/maven-metadata.xml">
           </td>
         </tr>
         <tr>
           <td>1.17.1</td>
           <td>forge</td>
           <td>
-            <img alt="1.17.1-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.17.1-forge/maven-metadata.xml">
+            <img alt="1.17.1-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.17.1-forge/maven-metadata.xml">
           </td>
         </tr>
         <tr>
           <td>1.16.2</td>
           <td>forge</td>
           <td>
-            <img alt="1.16.2-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.16.2-forge/maven-metadata.xml">
+            <img alt="1.16.2-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.16.2-forge/maven-metadata.xml">
           </td>
         </tr>
         <tr>
           <td>1.12.2</td>
           <td>forge</td>
           <td>
-            <img alt="1.12.2-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.12.2-forge/maven-metadata.xml">
+            <img alt="1.12.2-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.12.2-forge/maven-metadata.xml">
           </td>
         </tr>
         <tr>
           <td>1.8.9</td>
           <td>forge</td>
-          <td><img alt="1.8.9-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.essential.gg/repository/maven-releases/gg/essential/elementa-1.8.9-forge/maven-metadata.xml"></td>
+          <td><img alt="1.8.9-forge" src="https://badges.modcore.net/badge/dynamic/xml?color=A97BFF&label=%20&query=%2Fmetadata%2Fversioning%2Flatest&url=https://repo.polyfrost.cc/releases/cc/polyfrost/elementa-1.8.9-forge/maven-metadata.xml"></td>
         </tr>
       </tbody>
     </table>

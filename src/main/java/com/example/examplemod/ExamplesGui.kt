@@ -1,13 +1,13 @@
 package com.example.examplemod
 
-import gg.essential.elementa.ElementaVersion
-import gg.essential.elementa.WindowScreen
-import gg.essential.elementa.components.*
-import gg.essential.elementa.constraints.*
-import gg.essential.elementa.constraints.animation.Animations
-import gg.essential.elementa.dsl.*
-import gg.essential.elementa.impl.Platform.Companion.platform
-import gg.essential.universal.UScreen
+import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
+import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
+import cc.polyfrost.oneconfig.libs.elementa.components.*
+import cc.polyfrost.oneconfig.libs.elementa.constraints.*
+import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations
+import cc.polyfrost.oneconfig.libs.elementa.dsl.*
+import cc.polyfrost.oneconfig.libs.elementa.impl.Platform.Companion.platform
+import cc.polyfrost.oneconfig.libs.universal.UScreen
 import java.awt.Color
 
 /**

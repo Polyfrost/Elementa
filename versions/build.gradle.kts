@@ -8,7 +8,6 @@ plugins {
     id("cc.polyfrost.multi-version")
     id("cc.polyfrost.defaults")
     id("cc.polyfrost.defaults.maven-publish")
-    `maven-publish`
 }
 
 group = "cc.polyfrost"
@@ -37,32 +36,39 @@ dependencies {
     common(project(":"))
 
     if (platform.isFabric) {
-        /*
         val fabricApiVersion = when(platform.mcVersion) {
+            10809 -> "1.8.0+1.8.9"
+            11202 -> "1.8.0+1.12.2"
             11404 -> "0.4.3+build.247-1.14"
             11502 -> "0.5.1+build.294-1.15"
             11601 -> "0.14.0+build.371-1.16"
-            11602 -> "0.17.1+build.394-1.16"
+            11605 -> "0.42.0+1.16"
             11701 -> "0.38.1+1.17"
-            11801 -> "0.46.4+1.18"
+            11802 -> "0.67.0+1.18.2"
             else -> throw GradleException("Unsupported platform $platform")
         }
-        val fabricApiModules = mutableListOf(
+        if (platform.isLegacyFabric) {
+            modRuntimeOnly(modCompileOnly("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:$fabricApiVersion") {
+                exclude(module = "legacy-fabric-entity-events-v1")
+            })
+            runtimeOnly(compileOnly("org.apache.logging.log4j:log4j-core:2.8.1")!!)
+            runtimeOnly(compileOnly("org.apache.logging.log4j:log4j-api:2.8.1")!!)
+        } else {
+            val fabricApiModules = mutableListOf(
                 "api-base",
                 "networking-v0",
                 "keybindings-v0",
                 "resource-loader-v0",
                 "lifecycle-events-v1",
-        )
-        if (platform.mcVersion >= 11600) {
-            fabricApiModules.add("key-binding-api-v1")
+            )
+            if (platform.mcVersion >= 11600) {
+                fabricApiModules.add("key-binding-api-v1")
+            }
+            fabricApiModules.forEach { module ->
+                // Using this combo to add it to our deps but not to our maven publication cause it's only for the example
+                modRuntimeOnly(modCompileOnly(fabricApi.module("fabric-$module", fabricApiVersion))!!)
+            }
         }
-        fabricApiModules.forEach { module ->
-            // Using this combo to add it to our deps but not to our maven publication cause it's only for the example
-            modRuntime(modCompileOnly(fabricApi.module("fabric-$module", fabricApiVersion))!!)
-        }
-
-         */
     }
 }
 

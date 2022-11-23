@@ -1,15 +1,15 @@
 package com.example.examplemod;
 
-import gg.essential.elementa.ElementaVersion;
-import gg.essential.elementa.UIComponent;
-import gg.essential.elementa.WindowScreen;
-import gg.essential.elementa.components.UIBlock;
-import gg.essential.elementa.constraints.CenterConstraint;
-import gg.essential.elementa.constraints.ChildBasedSizeConstraint;
-import gg.essential.elementa.constraints.PixelConstraint;
-import gg.essential.elementa.constraints.animation.AnimatingConstraints;
-import gg.essential.elementa.constraints.animation.Animations;
-import gg.essential.elementa.effects.ScissorEffect;
+import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion;
+import cc.polyfrost.oneconfig.libs.elementa.UIComponent;
+import cc.polyfrost.oneconfig.libs.elementa.WindowScreen;
+import cc.polyfrost.oneconfig.libs.elementa.components.UIBlock;
+import cc.polyfrost.oneconfig.libs.elementa.constraints.CenterConstraint;
+import cc.polyfrost.oneconfig.libs.elementa.constraints.ChildBasedSizeConstraint;
+import cc.polyfrost.oneconfig.libs.elementa.constraints.PixelConstraint;
+import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.AnimatingConstraints;
+import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations;
+import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect;
 
 public class JavaTestGui extends WindowScreen {
     UIComponent box = new UIBlock()

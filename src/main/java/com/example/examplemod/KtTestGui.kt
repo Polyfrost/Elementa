@@ -1,18 +1,18 @@
 package com.example.examplemod
 
-import gg.essential.elementa.ElementaVersion
-import gg.essential.elementa.WindowScreen
-import gg.essential.elementa.components.*
-import gg.essential.elementa.components.input.UIMultilineTextInput
-import gg.essential.elementa.components.inspector.Inspector
-import gg.essential.elementa.constraints.*
-import gg.essential.elementa.constraints.animation.Animations
-import gg.essential.elementa.dsl.*
-import gg.essential.elementa.effects.OutlineEffect
-import gg.essential.elementa.effects.ScissorEffect
-import gg.essential.elementa.font.DefaultFonts
-import gg.essential.elementa.font.ElementaFonts
-import gg.essential.elementa.utils.withAlpha
+import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
+import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
+import cc.polyfrost.oneconfig.libs.elementa.components.*
+import cc.polyfrost.oneconfig.libs.elementa.components.input.UIMultilineTextInput
+import cc.polyfrost.oneconfig.libs.elementa.components.inspector.Inspector
+import cc.polyfrost.oneconfig.libs.elementa.constraints.*
+import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations
+import cc.polyfrost.oneconfig.libs.elementa.dsl.*
+import cc.polyfrost.oneconfig.libs.elementa.effects.OutlineEffect
+import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect
+import cc.polyfrost.oneconfig.libs.elementa.font.DefaultFonts
+import cc.polyfrost.oneconfig.libs.elementa.font.ElementaFonts
+import cc.polyfrost.oneconfig.libs.elementa.utils.withAlpha
 import java.awt.Color
 
 class KtTestGui : WindowScreen(ElementaVersion.V2) {

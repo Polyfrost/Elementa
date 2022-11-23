@@ -1,31 +1,29 @@
-import cc.polyfrost.gradle.util.*
-
 plugins {
     id("cc.polyfrost.multi-version.root")
     id("cc.polyfrost.multi-version.api-validation")
 }
 
-version = versionFromBuildIdAndBranch()
+version = 559
 
 preprocess {
-    val forge11801 = createNode("1.18.1-forge", 11801, "srg")
-    val fabric11801 = createNode("1.18.1-fabric", 11801, "yarn")
+    val forge11802 = createNode("1.18.2-forge", 11802, "srg")
+    val fabric11802 = createNode("1.18.2-fabric", 11802, "yarn")
     val forge11701 = createNode("1.17.1-forge", 11701, "srg")
     val fabric11701 = createNode("1.17.1-fabric", 11701, "yarn")
-    val fabric11602 = createNode("1.16.2-fabric", 11602, "yarn")
-    val forge11602 = createNode("1.16.2-forge", 11602, "srg")
+    val fabric11605 = createNode("1.16.5-fabric", 11605, "yarn")
+    val forge11605 = createNode("1.16.5-forge", 11605, "srg")
     val forge11502 = createNode("1.15.2-forge", 11502, "srg")
     val forge11202 = createNode("1.12.2-forge", 11202, "srg")
     val fabric11202 = createNode("1.12.2-fabric", 11202, "yarn")
     val fabric10809 = createNode("1.8.9-fabric", 10809, "yarn")
     val forge10809 = createNode("1.8.9-forge", 10809, "srg")
 
-    forge11801.link(fabric11801)
-    fabric11801.link(fabric11701)
+    forge11802.link(fabric11802)
+    fabric11802.link(fabric11701)
     forge11701.link(fabric11701)
-    fabric11701.link(fabric11602)
-    fabric11602.link(forge11602)
-    forge11602.link(forge11502)
+    fabric11701.link(fabric11605)
+    fabric11605.link(forge11605)
+    forge11605.link(forge11502)
     forge11502.link(forge11202, file("1.15.2-1.12.2.txt"))
     fabric11202.link(forge11202)
     forge11202.link(forge10809, file("1.12.2-1.8.9.txt"))

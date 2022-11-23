@@ -16,8 +16,8 @@ tasks.compileKotlin.setJvmDefault("all-compatibility")
 
 val internal by configurations.creating {
     val relocated = registerRelocationAttribute("internal-relocated") {
-        relocate("org.dom4j", "gg.essential.elementa.impl.dom4j")
-        relocate("org.commonmark", "gg.essential.elementa.impl.commonmark")
+        relocate("org.dom4j", "cc.polyfrost.oneconfig.libs.elementa.impl.dom4j")
+        relocate("org.commonmark", "cc.polyfrost.oneconfig.libs.elementa.impl.commonmark")
         remapStringsIn("org.dom4j.DocumentFactory")
         remapStringsIn("org.commonmark.internal.util.Html5Entities")
     }

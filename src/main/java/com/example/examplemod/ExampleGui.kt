@@ -1,13 +1,13 @@
 package com.example.examplemod
 
-import gg.essential.elementa.ElementaVersion
-import gg.essential.elementa.WindowScreen
-import gg.essential.elementa.components.*
-import gg.essential.elementa.components.input.UITextInput
-import gg.essential.elementa.constraints.*
-import gg.essential.elementa.constraints.animation.Animations
-import gg.essential.elementa.dsl.*
-import gg.essential.elementa.effects.ScissorEffect
+import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
+import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
+import cc.polyfrost.oneconfig.libs.elementa.components.*
+import cc.polyfrost.oneconfig.libs.elementa.components.input.UITextInput
+import cc.polyfrost.oneconfig.libs.elementa.constraints.*
+import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations
+import cc.polyfrost.oneconfig.libs.elementa.dsl.*
+import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect
 import java.awt.Color
 
 /**

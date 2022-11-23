@@ -1,7 +1,7 @@
 package com.example.examplemod;
 
-import gg.essential.elementa.effects.StencilEffect;
-import gg.essential.universal.UMinecraft;
+import cc.polyfrost.oneconfig.libs.elementa.effects.StencilEffect;
+import cc.polyfrost.oneconfig.libs.universal.UMinecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 
 //#if FORGE
@@ -22,7 +22,11 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 //#else
 //#if FABRIC
 //$$ import net.fabricmc.api.ClientModInitializer;
+//#if MC<11400
+//$$ import net.legacyfabric.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+//#else
 //$$ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+//#endif
 //#endif
 //#endif
 

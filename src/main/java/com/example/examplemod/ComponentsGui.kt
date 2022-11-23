@@ -1,16 +1,16 @@
 package com.example.examplemod
 
-import gg.essential.elementa.ElementaVersion
-import gg.essential.elementa.WindowScreen
-import gg.essential.elementa.components.*
-import gg.essential.elementa.components.image.BlurHashImage
-import gg.essential.elementa.components.input.UIMultilineTextInput
-import gg.essential.elementa.components.input.UITextInput
-import gg.essential.elementa.components.inspector.Inspector
-import gg.essential.elementa.constraints.*
-import gg.essential.elementa.dsl.*
-import gg.essential.elementa.effects.OutlineEffect
-import gg.essential.elementa.markdown.MarkdownComponent
+import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
+import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
+import cc.polyfrost.oneconfig.libs.elementa.components.*
+import cc.polyfrost.oneconfig.libs.elementa.components.image.BlurHashImage
+import cc.polyfrost.oneconfig.libs.elementa.components.input.UIMultilineTextInput
+import cc.polyfrost.oneconfig.libs.elementa.components.input.UITextInput
+import cc.polyfrost.oneconfig.libs.elementa.components.inspector.Inspector
+import cc.polyfrost.oneconfig.libs.elementa.constraints.*
+import cc.polyfrost.oneconfig.libs.elementa.dsl.*
+import cc.polyfrost.oneconfig.libs.elementa.effects.OutlineEffect
+import cc.polyfrost.oneconfig.libs.elementa.markdown.MarkdownComponent
 import java.awt.Color
 import java.net.URL
 

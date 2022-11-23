@@ -1,0 +1,128 @@
+package cc.polyfrost.oneconfig.libs.elementa.components
+
+import cc.polyfrost.oneconfig.libs.elementa.UIComponent
+import cc.polyfrost.oneconfig.libs.elementa.UIConstraints
+import cc.polyfrost.oneconfig.libs.elementa.constraints.CenterConstraint
+import cc.polyfrost.oneconfig.libs.elementa.dsl.width
+import cc.polyfrost.oneconfig.libs.elementa.state.BasicState
+import cc.polyfrost.oneconfig.libs.elementa.state.MappedState
+import cc.polyfrost.oneconfig.libs.elementa.state.State
+import cc.polyfrost.oneconfig.libs.elementa.state.pixels
+import cc.polyfrost.oneconfig.libs.universal.UGraphics
+import cc.polyfrost.oneconfig.libs.universal.UMatrixStack
+import java.awt.Color
+
+/**
+ * Simple text component that draws its given `text` at the scale determined by
+ * this component's width & height constraints.
+ */
+open class UIText
+constructor(
+    text: State<String>,
+    shadow: State<Boolean> = BasicState(true),
+    shadowColor: State<Color?> = BasicState(null)
+) : UIComponent() {
+    @JvmOverloads constructor(
+        text: String = "",
+        shadow: Boolean = true,
+        shadowColor: Color? = null
+    ) : this(BasicState(text), BasicState(shadow), BasicState(shadowColor))
+
+    private val textState: MappedState<String, String> = text.map { it } // extra map so we can easily rebind it
+    private val shadowState: MappedState<Boolean, Boolean> = shadow.map { it }
+    private val shadowColorState: MappedState<Color?, Color?> = shadowColor.map { it }
+    private val textScaleState = constraints.asState { getTextScale() }
+    /** Guess on whether we should be trying to center or top-align this component. See [BELOW_LINE_HEIGHT]. */
+    private val verticallyCenteredState = constraints.asState { y is CenterConstraint }
+    private val fontProviderState = constraints.asState { fontProvider }
+    private var textWidthState = textState.zip(textScaleState.zip(fontProviderState)).map { (text, opts) ->
+        val (textScale, fontProvider) = opts
+        text.width(textScale, fontProvider) / textScale
+    }
+
+
+
+    private fun <T> UIConstraints.asState(selector: UIConstraints.() -> T) = BasicState(selector(constraints)).also {
+        constraints.addObserver { _, _ -> it.set(selector(constraints)) }
+    }
+
+    init {
+        setWidth(textWidthState.pixels())
+        setHeight(shadowState.zip(verticallyCenteredState.zip(fontProviderState)).map { (shadow, opts) ->
+            val (verticallyCentered, fontProvider) = opts
+            val above = (if (verticallyCentered) fontProvider.getBelowLineHeight() else 0f)
+            val center = fontProvider.getBaseLineHeight()
+            val below = fontProvider.getBelowLineHeight() + (if (shadow) fontProvider.getShadowHeight() else 0f)
+            above + center + below
+        }.pixels())
+    }
+
+    fun bindText(newTextState: State<String>) = apply {
+        textState.rebind(newTextState)
+    }
+
+    fun bindShadow(newShadowState: State<Boolean>) = apply {
+        shadowState.rebind(newShadowState)
+    }
+
+    fun bindShadowColor(newShadowColorState: State<Color?>) = apply {
+        shadowColorState.rebind(newShadowColorState)
+    }
+
+    fun getText() = textState.get()
+    fun setText(text: String) = apply { textState.set(text) }
+
+    fun getShadow() = shadowState.get()
+    fun setShadow(shadow: Boolean) = apply { shadowState.set(shadow) }
+
+    @Deprecated("Wrong return type", level = DeprecationLevel.HIDDEN)
+    @JvmName("getShadowColor")
+    fun getShadowColorState(): State<Color?> = shadowColorState
+
+    fun getShadowColor(): Color? = shadowColorState.get()
+    fun setShadowColor(shadowColor: Color?) = apply { shadowColorState.set(shadowColor) }
+
+    /**
+     * Returns the text width if no scale is applied to the text
+     */
+    fun getTextWidth() = textWidthState.get()
+
+    override fun getWidth(): Float {
+        return super.getWidth() * getTextScale()
+    }
+
+    override fun getHeight(): Float {
+        return super.getHeight() * getTextScale()
+    }
+
+    override fun draw(matrixStack: UMatrixStack) {
+        val text = textState.get()
+        if (text.isEmpty())
+            return
+
+        beforeDrawCompat(matrixStack)
+
+        val scale = getWidth() / textWidthState.get()
+        val x = getLeft()
+        val y = getTop() + (if (verticallyCenteredState.get()) fontProviderState.get().getBelowLineHeight() * scale else 0f)
+        val color = getColor()
+
+        // We aren't visible, don't draw
+        if (color.alpha <= 10) {
+            return super.draw(matrixStack)
+        }
+
+        UGraphics.enableBlend()
+
+        val shadow = shadowState.get()
+        val shadowColor = shadowColorState.get()
+        getFontProvider().drawString(
+            matrixStack,
+            textState.get(), color, x, y,
+            10f, scale, shadow, shadowColor
+        )
+        super.draw(matrixStack)
+    }
+
+
+}
