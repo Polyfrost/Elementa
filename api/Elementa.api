@@ -11,7 +11,7 @@ public final class cc/polyfrost/oneconfig/libs/elementa/ElementaVersion : java/l
 public final class cc/polyfrost/oneconfig/libs/elementa/ElementaVersion$Companion {
 }
 
-public abstract class cc/polyfrost/oneconfig/libs/elementa/UIComponent : java/util/Observable {
+public abstract class cc/polyfrost/oneconfig/libs/elementa/UIComponent : java/util/Observable, cc/polyfrost/oneconfig/libs/elementa/state/v2/ReferenceHolder {
 	public static final field Companion Lcc/polyfrost/oneconfig/libs/elementa/UIComponent$Companion;
 	public field parent Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;
 	public fun <init> ()V
@@ -88,6 +88,7 @@ public abstract class cc/polyfrost/oneconfig/libs/elementa/UIComponent : java/ut
 	public final fun hide (Z)V
 	public static synthetic fun hide$default (Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;ZILjava/lang/Object;)V
 	public fun hitTest (FF)Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;
+	public fun holdOnto (Ljava/lang/Object;)Lkotlin/jvm/functions/Function0;
 	public fun insertChildAfter (Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;)Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;
 	public fun insertChildAt (Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;I)Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;
 	public fun insertChildBefore (Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;)Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;
@@ -3837,6 +3838,15 @@ public final class cc/polyfrost/oneconfig/libs/elementa/state/ZippedStateDelegat
 	public fun <init> (Lcc/polyfrost/oneconfig/libs/elementa/state/State;Lcc/polyfrost/oneconfig/libs/elementa/state/State;)V
 }
 
+public abstract interface class cc/polyfrost/oneconfig/libs/elementa/state/v2/ReferenceHolder {
+	public abstract fun holdOnto (Ljava/lang/Object;)Lkotlin/jvm/functions/Function0;
+}
+
+public final class cc/polyfrost/oneconfig/libs/elementa/state/v2/ReferenceHolder$Weak : cc/polyfrost/oneconfig/libs/elementa/state/v2/ReferenceHolder {
+	public static final field INSTANCE Lcc/polyfrost/oneconfig/libs/elementa/state/v2/ReferenceHolder$Weak;
+	public fun holdOnto (Ljava/lang/Object;)Lkotlin/jvm/functions/Function0;
+}
+
 public final class cc/polyfrost/oneconfig/libs/elementa/svg/PathParser {
 	public static final field Companion Lcc/polyfrost/oneconfig/libs/elementa/svg/PathParser$Companion;
 	public fun <init> (Ljava/lang/String;)V
@@ -4440,6 +4450,8 @@ public final class cc/polyfrost/oneconfig/libs/elementa/utils/TextKt {
 	public static synthetic fun getStringSplitToWidthTruncated$default (Ljava/lang/String;FFIZZLcc/polyfrost/oneconfig/libs/elementa/font/FontProvider;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/List;
 	public static final fun isFormatColor (I)Z
 	public static final fun sizeStringToWidth (Ljava/lang/String;F)I
+	public static final fun splitStringToWidthTruncated (Ljava/lang/String;FFIZZLcc/polyfrost/oneconfig/libs/elementa/font/FontProvider;Ljava/lang/String;)Ljava/util/List;
+	public static synthetic fun splitStringToWidthTruncated$default (Ljava/lang/String;FFIZZLcc/polyfrost/oneconfig/libs/elementa/font/FontProvider;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/List;
 }
 
 public abstract interface class cc/polyfrost/oneconfig/libs/elementa/utils/TriConsumer {

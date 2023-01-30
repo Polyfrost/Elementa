@@ -4,7 +4,7 @@ import cc.polyfrost.oneconfig.libs.elementa.constraints.HeightConstraint
 import cc.polyfrost.oneconfig.libs.elementa.dsl.coerceAtMost
 import cc.polyfrost.oneconfig.libs.elementa.dsl.pixels
 import cc.polyfrost.oneconfig.libs.elementa.dsl.width
-import cc.polyfrost.oneconfig.libs.elementa.utils.getStringSplitToWidthTruncated
+import cc.polyfrost.oneconfig.libs.elementa.utils.splitStringToWidthTruncated
 import cc.polyfrost.oneconfig.libs.universal.UKeyboard
 import cc.polyfrost.oneconfig.libs.universal.UMatrixStack
 import java.awt.Color
@@ -77,7 +77,7 @@ class UIMultilineTextInput @JvmOverloads constructor(
 
         val textScale = getTextScale()
         if (!active && !hasText()) {
-            val textToDraw = getStringSplitToWidthTruncated(placeholder, getWidth(), textScale, 1)[0]
+            val textToDraw = splitStringToWidthTruncated(placeholder, getWidth(), textScale, 1)[0]
             drawUnselectedText(matrixStack, textToDraw, getLeft(), 0)
             return super.draw(matrixStack)
         }

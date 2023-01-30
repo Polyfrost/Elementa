@@ -10,7 +10,7 @@ import cc.polyfrost.oneconfig.libs.elementa.state.MappedState
 import cc.polyfrost.oneconfig.libs.elementa.state.State
 import cc.polyfrost.oneconfig.libs.elementa.state.pixels
 import cc.polyfrost.oneconfig.libs.elementa.utils.getStringSplitToWidth
-import cc.polyfrost.oneconfig.libs.elementa.utils.getStringSplitToWidthTruncated
+import cc.polyfrost.oneconfig.libs.elementa.utils.splitStringToWidthTruncated
 import cc.polyfrost.oneconfig.libs.universal.UGraphics
 import cc.polyfrost.oneconfig.libs.universal.UMatrixStack
 import java.awt.Color
@@ -154,7 +154,7 @@ open class UIWrappedText @JvmOverloads constructor(
         UGraphics.enableBlend()
 
         val lines = if (trimText) {
-            getStringSplitToWidthTruncated(
+            splitStringToWidthTruncated(
                 textState.get(),
                 width,
                 textScale,

@@ -12,6 +12,7 @@ import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect
 import cc.polyfrost.oneconfig.libs.elementa.events.UIClickEvent
 import cc.polyfrost.oneconfig.libs.elementa.events.UIScrollEvent
 import cc.polyfrost.oneconfig.libs.elementa.font.FontProvider
+import cc.polyfrost.oneconfig.libs.elementa.state.v2.ReferenceHolder
 import cc.polyfrost.oneconfig.libs.elementa.utils.*
 import cc.polyfrost.oneconfig.libs.elementa.utils.requireMainThread
 import cc.polyfrost.oneconfig.libs.elementa.utils.requireState
@@ -32,7 +33,7 @@ import kotlin.reflect.KMutableProperty0
  * UIComponent is the base of all drawing, meaning
  * everything visible on the screen is a UIComponent.
  */
-abstract class UIComponent : Observable() {
+abstract class UIComponent : Observable(), ReferenceHolder {
 
     // Except when debugging, the component name does not need to be resolved
     // and the performance hit of eagerly resolving the name via the java class
@@ -105,6 +106,8 @@ abstract class UIComponent : Observable() {
     // We have to store stopped timers separately to avoid ConcurrentModificationException
     private val stoppedTimers = mutableSetOf<Int>()
     private var nextTimerId = 0
+
+    private var heldReferences = mutableListOf<Any>()
 
     protected var isInitialized = false
     private var isFloating = false
@@ -1176,6 +1179,11 @@ abstract class UIComponent : Observable() {
                 timeLeft = interval
             }
         }
+    }
+
+    override fun holdOnto(listener: Any): () -> Unit {
+        heldReferences.add(listener)
+        return { heldReferences.remove(listener) }
     }
 
     companion object {
