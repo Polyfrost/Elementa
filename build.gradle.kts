@@ -1,12 +1,12 @@
-import cc.polyfrost.gradle.multiversion.StripReferencesTransform.Companion.registerStripReferencesAttribute
-import cc.polyfrost.gradle.util.*
-import cc.polyfrost.gradle.util.RelocationTransform.Companion.registerRelocationAttribute
+import org.polyfrost.gradle.multiversion.StripReferencesTransform.Companion.registerStripReferencesAttribute
+import org.polyfrost.gradle.util.*
+import org.polyfrost.gradle.util.RelocationTransform.Companion.registerRelocationAttribute
 
 plugins {
     kotlin("jvm") version "1.6.10"
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.8.0"
     id("org.jetbrains.dokka") version "1.6.10" apply false
-    id("cc.polyfrost.defaults")
+    id("org.polyfrost.defaults")
 }
 
 kotlin.jvmToolchain {

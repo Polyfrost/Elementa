@@ -3,12 +3,17 @@ public final class cc/polyfrost/oneconfig/libs/elementa/ElementaVersion : java/l
 	public static final field V0 Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
 	public static final field V1 Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
 	public static final field V2 Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
+	public static final field V3 Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
+	public static final field V4 Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
+	public static final field V5 Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
 	public final fun enableFor (Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 	public static fun valueOf (Ljava/lang/String;)Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
 	public static fun values ()[Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
 }
 
 public final class cc/polyfrost/oneconfig/libs/elementa/ElementaVersion$Companion {
+	public final fun getActive ()Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;
+	public final fun setActive (Lcc/polyfrost/oneconfig/libs/elementa/ElementaVersion;)V
 }
 
 public abstract class cc/polyfrost/oneconfig/libs/elementa/UIComponent : java/util/Observable, cc/polyfrost/oneconfig/libs/elementa/state/v2/ReferenceHolder {
@@ -333,6 +338,8 @@ public final class cc/polyfrost/oneconfig/libs/elementa/components/ScrollCompone
 	public fun <init> (Ljava/lang/String;)V
 	public fun <init> (Ljava/lang/String;F)V
 	public fun <init> (Ljava/lang/String;FLjava/awt/Color;)V
+	public fun <init> (Ljava/lang/String;FLjava/awt/Color;Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;ZZFFLcc/polyfrost/oneconfig/libs/elementa/UIComponent;Z)V
+	public synthetic fun <init> (Ljava/lang/String;FLjava/awt/Color;Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;ZZFFLcc/polyfrost/oneconfig/libs/elementa/UIComponent;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;FLjava/awt/Color;Z)V
 	public fun <init> (Ljava/lang/String;FLjava/awt/Color;ZZ)V
 	public fun <init> (Ljava/lang/String;FLjava/awt/Color;ZZZ)V
@@ -400,9 +407,18 @@ public final class cc/polyfrost/oneconfig/libs/elementa/components/ScrollCompone
 	public final fun getScrollImage ()Lcc/polyfrost/oneconfig/libs/elementa/components/UIImage;
 }
 
-public final class cc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$DefaultScrollBar : cc/polyfrost/oneconfig/libs/elementa/UIComponent {
+public final class cc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$DefaultScrollBar : cc/polyfrost/oneconfig/libs/elementa/components/UIContainer {
 	public fun <init> (Z)V
 	public final fun getGrip ()Lcc/polyfrost/oneconfig/libs/elementa/UIComponent;
+}
+
+public final class cc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction : java/lang/Enum {
+	public static final field Horizontal Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;
+	public static final field PreferHorizontal Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;
+	public static final field PreferVertical Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;
+	public static final field Vertical Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;
+	public static fun valueOf (Ljava/lang/String;)Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;
+	public static fun values ()[Lcc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$Direction;
 }
 
 public final class cc/polyfrost/oneconfig/libs/elementa/components/ScrollComponent$ScrollChildConstraint : cc/polyfrost/oneconfig/libs/elementa/constraints/HeightConstraint, cc/polyfrost/oneconfig/libs/elementa/constraints/WidthConstraint {
@@ -3338,6 +3354,7 @@ public abstract class cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Dr
 	public static final field Companion Lcc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Drawable$Companion;
 	public field layout Lcc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Drawable$Layout;
 	public fun <init> (Lcc/polyfrost/oneconfig/libs/elementa/markdown/MarkdownComponent;)V
+	public fun beforeDraw (Lcc/polyfrost/oneconfig/libs/elementa/markdown/DrawState;)V
 	public abstract fun cursorAt (FFZI)Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;
 	public abstract fun cursorAtEnd ()Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;
 	public abstract fun cursorAtStart ()Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;
@@ -3521,6 +3538,7 @@ public final class cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Heade
 
 public final class cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/ImageDrawable : cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Drawable {
 	public fun <init> (Lcc/polyfrost/oneconfig/libs/elementa/markdown/MarkdownComponent;Ljava/net/URL;Lcc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Drawable;)V
+	public fun beforeDraw (Lcc/polyfrost/oneconfig/libs/elementa/markdown/DrawState;)V
 	public synthetic fun cursorAt (FFZI)Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;
 	public fun cursorAt (FFZI)Ljava/lang/Void;
 	public synthetic fun cursorAtEnd ()Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;
@@ -3590,7 +3608,7 @@ public final class cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/SoftB
 public final class cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/TextDrawable : cc/polyfrost/oneconfig/libs/elementa/markdown/drawables/Drawable {
 	public static final field Companion Lcc/polyfrost/oneconfig/libs/elementa/markdown/drawables/TextDrawable$Companion;
 	public fun <init> (Lcc/polyfrost/oneconfig/libs/elementa/markdown/MarkdownComponent;Ljava/lang/String;Lcc/polyfrost/oneconfig/libs/elementa/markdown/drawables/TextDrawable$Style;)V
-	public final fun beforeDraw (Lcc/polyfrost/oneconfig/libs/elementa/markdown/DrawState;)V
+	public fun beforeDraw (Lcc/polyfrost/oneconfig/libs/elementa/markdown/DrawState;)V
 	public synthetic fun cursorAt (FFZI)Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;
 	public fun cursorAt (FFZI)Ljava/lang/Void;
 	public synthetic fun cursorAtEnd ()Lcc/polyfrost/oneconfig/libs/elementa/markdown/selection/Cursor;

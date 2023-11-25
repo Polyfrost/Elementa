@@ -450,9 +450,11 @@ abstract class UIComponent : Observable(), ReferenceHolder {
      * Also does some housekeeping dealing with hovering and effects.
      */
     open fun draw(matrixStack: UMatrixStack) {
-        if (!isInitialized) {
-            isInitialized = true
-            afterInitialization()
+        if (ElementaVersion.active < ElementaVersion.v4) {
+            if (!isInitialized) {
+                isInitialized = true
+                afterInitialization()
+            }
         }
         if (!didCallBeforeDraw && !warnedAboutBeforeDraw) {
             warnedAboutBeforeDraw = true
@@ -509,11 +511,22 @@ abstract class UIComponent : Observable(), ReferenceHolder {
         }
         didCallBeforeDraw = true
 
+        if (ElementaVersion.active >= ElementaVersion.v4) {
+            if (!isInitialized) {
+                isInitialized = true
+                afterInitialization()
+            }
+        }
+
         effects.forEach { it.beforeDraw(matrixStack) }
     }
 
     open fun afterDraw(matrixStack: UMatrixStack) {
-        effects.forEach { it.afterDraw(matrixStack) }
+        if (ElementaVersion.active >= ElementaVersion.v3) {
+            effects.asReversed().forEach { it.afterDraw(matrixStack) }
+        } else {
+            effects.forEach { it.afterDraw(matrixStack) }
+        }
     }
 
     open fun beforeChildrenDraw(matrixStack: UMatrixStack) {

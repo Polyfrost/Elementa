@@ -1,13 +1,13 @@
-import cc.polyfrost.gradle.multiversion.excludeKotlinDefaultImpls
-import cc.polyfrost.gradle.multiversion.mergePlatformSpecifics
-import cc.polyfrost.gradle.util.*
+import org.polyfrost.gradle.multiversion.excludeKotlinDefaultImpls
+import org.polyfrost.gradle.multiversion.mergePlatformSpecifics
+import org.polyfrost.gradle.util.*
 
 plugins {
     kotlin("jvm")
     id("org.jetbrains.dokka")
-    id("cc.polyfrost.multi-version")
-    id("cc.polyfrost.defaults")
-    id("cc.polyfrost.defaults.maven-publish")
+    id("org.polyfrost.multi-version")
+    id("org.polyfrost.defaults")
+    id("org.polyfrost.defaults.maven-publish")
 }
 
 group = "cc.polyfrost"
@@ -21,7 +21,7 @@ configurations.compileClasspath { extendsFrom(common) }
 configurations.runtimeClasspath { extendsFrom(common) }
 
 repositories {
-    maven("https://repo.polyfrost.cc/releases")
+    maven("https://repo.polyfrost.org/releases")
 }
 
 dependencies {
@@ -36,7 +36,7 @@ dependencies {
     common(project(":"))
 
     if (platform.isFabric) {
-        val fabricApiVersion = when(platform.mcVersion) {
+        val fabricApiVersion = when (platform.mcVersion) {
             10809 -> "1.8.0+1.8.9"
             11202 -> "1.8.0+1.12.2"
             11404 -> "0.4.3+build.247-1.14"
@@ -48,7 +48,7 @@ dependencies {
             else -> throw GradleException("Unsupported platform $platform")
         }
         if (platform.isLegacyFabric) {
-            modRuntimeOnly(modCompileOnly("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:$fabricApiVersion") {
+            modLocalRuntime(modCompileOnly("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:$fabricApiVersion") {
                 exclude(module = "legacy-fabric-entity-events-v1")
             })
             runtimeOnly(compileOnly("org.apache.logging.log4j:log4j-core:2.8.1")!!)
@@ -66,7 +66,7 @@ dependencies {
             }
             fabricApiModules.forEach { module ->
                 // Using this combo to add it to our deps but not to our maven publication cause it's only for the example
-                modRuntimeOnly(modCompileOnly(fabricApi.module("fabric-$module", fabricApiVersion))!!)
+                modLocalRuntime(modCompileOnly(fabricApi.module("fabric-$module", fabricApiVersion))!!)
             }
         }
     }

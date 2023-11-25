@@ -1,6 +1,6 @@
 plugins {
-    id("cc.polyfrost.multi-version.root")
-    id("cc.polyfrost.multi-version.api-validation")
+    id("org.polyfrost.multi-version.root")
+    id("org.polyfrost.multi-version.api-validation")
 }
 
 version = 559
