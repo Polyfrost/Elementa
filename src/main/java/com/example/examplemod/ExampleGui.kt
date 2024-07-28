@@ -1,13 +1,15 @@
 package com.example.examplemod
 
-import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
-import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
-import cc.polyfrost.oneconfig.libs.elementa.components.*
-import cc.polyfrost.oneconfig.libs.elementa.components.input.UITextInput
-import cc.polyfrost.oneconfig.libs.elementa.constraints.*
-import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations
-import cc.polyfrost.oneconfig.libs.elementa.dsl.*
-import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect
+import org.polyfrost.elementa.ElementaVersion
+import org.polyfrost.elementa.components.UIBlock
+import org.polyfrost.elementa.WindowScreen
+import org.polyfrost.elementa.components.UIText
+import org.polyfrost.elementa.components.input.UITextInput
+import org.polyfrost.elementa.constraints.animation.Animations
+import org.polyfrost.elementa.constraints.*
+import org.polyfrost.elementa.effects.ScissorEffect
+import org.polyfrost.elementa.dsl.*
+import org.polyfrost.elementa.dsl.toConstraint
 import java.awt.Color
 
 /**

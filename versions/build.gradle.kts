@@ -10,7 +10,7 @@ plugins {
     id("org.polyfrost.defaults.maven-publish")
 }
 
-group = "cc.polyfrost"
+group = "org.polyfrost"
 
 java.withSourcesJar()
 tasks.compileKotlin.setJvmDefault(if (platform.mcVersion >= 11400) "all" else "all-compatibility")
@@ -29,7 +29,7 @@ dependencies {
     implementation(libs.kotlin.reflect)
     compileOnly(libs.jetbrains.annotations)
 
-    modApi(libs.versions.universalcraft.map { "cc.polyfrost:universalcraft-$platform:$it" }) {
+    modApi(libs.versions.universalcraft.map { "org.polyfrost:universalcraft-$platform:$it" }) {
         exclude(group = "org.jetbrains.kotlin")
     }
 

@@ -1,7 +1,7 @@
 package com.example.examplemod;
 
-import cc.polyfrost.oneconfig.libs.elementa.effects.StencilEffect;
-import cc.polyfrost.oneconfig.libs.universal.UMinecraft;
+import org.polyfrost.elementa.effects.StencilEffect;
+import org.polyfrost.universal.UMinecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 
 //#if FORGE

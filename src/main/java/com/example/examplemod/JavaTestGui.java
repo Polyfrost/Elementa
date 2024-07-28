@@ -1,15 +1,15 @@
 package com.example.examplemod;
 
-import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion;
-import cc.polyfrost.oneconfig.libs.elementa.UIComponent;
-import cc.polyfrost.oneconfig.libs.elementa.WindowScreen;
-import cc.polyfrost.oneconfig.libs.elementa.components.UIBlock;
-import cc.polyfrost.oneconfig.libs.elementa.constraints.CenterConstraint;
-import cc.polyfrost.oneconfig.libs.elementa.constraints.ChildBasedSizeConstraint;
-import cc.polyfrost.oneconfig.libs.elementa.constraints.PixelConstraint;
-import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.AnimatingConstraints;
-import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations;
-import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect;
+import org.polyfrost.elementa.ElementaVersion;
+import org.polyfrost.elementa.UIComponent;
+import org.polyfrost.elementa.WindowScreen;
+import org.polyfrost.elementa.components.UIBlock;
+import org.polyfrost.elementa.constraints.CenterConstraint;
+import org.polyfrost.elementa.constraints.ChildBasedSizeConstraint;
+import org.polyfrost.elementa.constraints.PixelConstraint;
+import org.polyfrost.elementa.constraints.animation.AnimatingConstraints;
+import org.polyfrost.elementa.constraints.animation.Animations;
+import org.polyfrost.elementa.effects.ScissorEffect;
 
 public class JavaTestGui extends WindowScreen {
     UIComponent box = new UIBlock()

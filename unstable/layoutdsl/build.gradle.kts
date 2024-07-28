@@ -1,15 +1,13 @@
-import gg.essential.gradle.multiversion.StripReferencesTransform.Companion.registerStripReferencesAttribute
-import gg.essential.gradle.util.setJvmDefault
-import gg.essential.gradle.util.versionFromBuildIdAndBranch
+import org.polyfrost.gradle.multiversion.StripReferencesTransform.Companion.registerStripReferencesAttribute
+import org.polyfrost.gradle.util.setJvmDefault
 
 plugins {
     kotlin("jvm")
-    id("gg.essential.defaults")
-    id("gg.essential.defaults.maven-publish")
+    id("org.polyfrost.defaults")
+    id("org.polyfrost.defaults.maven-publish")
 }
 
-version = versionFromBuildIdAndBranch()
-group = "gg.essential"
+group = "org.polyfrost"
 
 dependencies {
     compileOnly(project(":"))
@@ -18,7 +16,7 @@ dependencies {
     val common = registerStripReferencesAttribute("common") {
         excludes.add("net.minecraft")
     }
-    compileOnly(libs.versions.universalcraft.map { "gg.essential:universalcraft-1.8.9-forge:$it" }) {
+    compileOnly(libs.versions.universalcraft.map { "org.polyfrost:universalcraft-1.8.9-forge:$it" }) {
         attributes { attribute(common, true) }
     }
 }

@@ -1,17 +1,7 @@
 package com.example.examplemod
 
-import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
-import cc.polyfrost.oneconfig.libs.elementa.UIComponent
-import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
-import cc.polyfrost.oneconfig.libs.elementa.components.*
-import cc.polyfrost.oneconfig.libs.elementa.components.image.BlurHashImage
-import cc.polyfrost.oneconfig.libs.elementa.constraints.*
-import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations
-import cc.polyfrost.oneconfig.libs.elementa.dsl.*
-import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect
-import cc.polyfrost.oneconfig.libs.universal.UScreen
-import java.awt.Color
-import java.net.URL
+import org.polyfrost.elementa.ElementaVersion
+import org.polyfrost.elementa.WindowScreen
 
 class ExampleServerList : WindowScreen(ElementaVersion.V2) {
 //    val serverList = (ScrollComponent().constrain {

@@ -1,16 +1,16 @@
 package com.example.examplemod
 
-import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
-import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
-import cc.polyfrost.oneconfig.libs.elementa.components.*
-import cc.polyfrost.oneconfig.libs.elementa.components.image.BlurHashImage
-import cc.polyfrost.oneconfig.libs.elementa.components.input.UIMultilineTextInput
-import cc.polyfrost.oneconfig.libs.elementa.components.input.UITextInput
-import cc.polyfrost.oneconfig.libs.elementa.components.inspector.Inspector
-import cc.polyfrost.oneconfig.libs.elementa.constraints.*
-import cc.polyfrost.oneconfig.libs.elementa.dsl.*
-import cc.polyfrost.oneconfig.libs.elementa.effects.OutlineEffect
-import cc.polyfrost.oneconfig.libs.elementa.markdown.MarkdownComponent
+import org.polyfrost.elementa.ElementaVersion
+import org.polyfrost.elementa.WindowScreen
+import org.polyfrost.elementa.components.image.BlurHashImage
+import org.polyfrost.elementa.components.input.UIMultilineTextInput
+import org.polyfrost.elementa.components.input.UITextInput
+import org.polyfrost.elementa.components.inspector.Inspector
+import org.polyfrost.elementa.components.*
+import org.polyfrost.elementa.constraints.*
+import org.polyfrost.elementa.effects.OutlineEffect
+import org.polyfrost.elementa.markdown.MarkdownComponent
+import org.polyfrost.elementa.dsl.*
 import java.awt.Color
 import java.net.URL
 
@@ -139,30 +139,40 @@ class ComponentsGui : WindowScreen(ElementaVersion.V2) {
 
             (UIShape() childOf shapeHolder).apply {
                 // Must be called after [childOf] because [addVertex] requires a parent at call
-                addVertex(UIPoint(
+                addVertex(
+                    UIPoint(
                     x = 15.pixels(),
                     y = 10.pixels()
-                ))
+                )
+                )
 
-                addVertex(UIPoint(
+                addVertex(
+                    UIPoint(
                     x = 16.pixels(),
                     y = 30.pixels()
-                ))
+                )
+                )
 
-                addVertex(UIPoint(
+                addVertex(
+                    UIPoint(
                     x = 36.pixels(),
                     y = 24.pixels()
-                ))
+                )
+                )
 
-                addVertex(UIPoint(
+                addVertex(
+                    UIPoint(
                     x = 32.pixels(),
                     y = 15.pixels()
-                ))
+                )
+                )
 
-                addVertex(UIPoint(
+                addVertex(
+                    UIPoint(
                     x = 10.pixels(),
                     y = 4.pixels()
-                ))
+                )
+                )
             }
         } childOf window
 

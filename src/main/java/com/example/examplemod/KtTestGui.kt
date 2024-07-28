@@ -1,18 +1,16 @@
 package com.example.examplemod
 
-import cc.polyfrost.oneconfig.libs.elementa.ElementaVersion
-import cc.polyfrost.oneconfig.libs.elementa.WindowScreen
-import cc.polyfrost.oneconfig.libs.elementa.components.*
-import cc.polyfrost.oneconfig.libs.elementa.components.input.UIMultilineTextInput
-import cc.polyfrost.oneconfig.libs.elementa.components.inspector.Inspector
-import cc.polyfrost.oneconfig.libs.elementa.constraints.*
-import cc.polyfrost.oneconfig.libs.elementa.constraints.animation.Animations
-import cc.polyfrost.oneconfig.libs.elementa.dsl.*
-import cc.polyfrost.oneconfig.libs.elementa.effects.OutlineEffect
-import cc.polyfrost.oneconfig.libs.elementa.effects.ScissorEffect
-import cc.polyfrost.oneconfig.libs.elementa.font.DefaultFonts
-import cc.polyfrost.oneconfig.libs.elementa.font.ElementaFonts
-import cc.polyfrost.oneconfig.libs.elementa.utils.withAlpha
+import org.polyfrost.elementa.components.UIContainer
+import org.polyfrost.elementa.constraints.CramSiblingConstraint
+import org.polyfrost.elementa.constraints.RelativeConstraint
+import org.polyfrost.elementa.dsl.pixels
+import org.polyfrost.elementa.ElementaVersion
+import org.polyfrost.elementa.components.UIBlock
+import org.polyfrost.elementa.WindowScreen
+import org.polyfrost.elementa.dsl.childOf
+import org.polyfrost.elementa.dsl.constrain
+import org.polyfrost.elementa.dsl.effect
+import org.polyfrost.elementa.effects.OutlineEffect
 import java.awt.Color
 
 class KtTestGui : WindowScreen(ElementaVersion.V2) {

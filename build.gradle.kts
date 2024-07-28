@@ -24,8 +24,8 @@ tasks.withType<KotlinCompile> {
 
 val internal by configurations.creating {
     val relocated = registerRelocationAttribute("internal-relocated") {
-        relocate("org.dom4j", "cc.polyfrost.oneconfig.libs.elementa.impl.dom4j")
-        relocate("org.commonmark", "cc.polyfrost.oneconfig.libs.elementa.impl.commonmark")
+        relocate("org.dom4j", "org.polyfrost.elementa.impl.dom4j")
+        relocate("org.commonmark", "org.polyfrost.elementa.impl.commonmark")
         remapStringsIn("org.dom4j.DocumentFactory")
         remapStringsIn("org.commonmark.internal.util.Html5Entities")
     }
@@ -50,7 +50,7 @@ dependencies {
     // Depending on LWJGL3 instead of 2 so we can choose opengl bindings only
     compileOnly("org.lwjgl:lwjgl-opengl:3.3.1")
     // Depending on 1.8.9 for all of these because that's the oldest version we support
-    compileOnly(libs.versions.universalcraft.map { "cc.polyfrost:universalcraft-1.8.9-forge:$it" }) {
+    compileOnly(libs.versions.universalcraft.map { "org.polyfrost:universalcraft-1.8.9-forge:$it" }) {
         attributes { attribute(common, true) }
     }
     compileOnly("com.google.code.gson:gson:2.2.4")
