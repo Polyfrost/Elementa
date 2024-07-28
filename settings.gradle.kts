@@ -3,7 +3,7 @@ pluginManagement {
         maven("https://repo.polyfrost.org/releases")
     }
     plugins {
-        val egtVersion = "0.2.9"
+        val egtVersion = "0.6.6"
         id("org.polyfrost.defaults") version egtVersion
         id("org.polyfrost.multi-version.root") version egtVersion
         id("org.polyfrost.multi-version.api-validation") version egtVersion
@@ -17,6 +17,8 @@ project(":platform").apply {
     projectDir = file("versions/")
     buildFileName = "root.gradle.kts"
 }
+include(":unstable:statev2")
+include(":unstable:layoutdsl")
 
 listOf(
     "1.8.9-forge",
