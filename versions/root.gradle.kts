@@ -3,7 +3,8 @@ plugins {
     id("org.polyfrost.multi-version.api-validation")
 }
 
-version = 561
+val lib_version: String by project
+version = lib_version
 
 preprocess {
     val forge11802 = createNode("1.18.2-forge", 11802, "srg")

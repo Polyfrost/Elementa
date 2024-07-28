@@ -9,6 +9,9 @@ plugins {
 
 group = "org.polyfrost"
 
+val lib_version: String by project
+version = lib_version
+
 dependencies {
     compileOnly(project(":"))
     api(project(":unstable:statev2"))
