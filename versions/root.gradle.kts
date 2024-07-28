@@ -3,7 +3,7 @@ plugins {
     id("org.polyfrost.multi-version.api-validation")
 }
 
-version = 560
+version = 561
 
 preprocess {
     val forge11802 = createNode("1.18.2-forge", 11802, "srg")
@@ -22,7 +22,7 @@ preprocess {
     forge11701.link(fabric11701)
     fabric11701.link(fabric11605)
     fabric11605.link(forge11605)
-    forge11605.link(forge11202, file("1.15.2-1.12.2.txt"))
+    forge11605.link(forge11202, file("1.16.5-1.12.2.txt"))
     fabric11202.link(forge11202)
     forge11202.link(forge10809, file("1.12.2-1.8.9.txt"))
     fabric10809.link(forge10809)
