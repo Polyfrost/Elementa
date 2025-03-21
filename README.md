@@ -1,3 +1,17 @@
+This fork was to maintain Legacy Fabric support and to use our Legacy Fabric UniversalCraft fork. However, Elementa no longer directly relies on Minecraft, meaning this no longer needs to be maintained.
+
+You may either use PolyUI via OneConfig V1, which we believe is a better solution to declarative GUIs, or follow this example to use our UC fork with Elementa:
+
+```kotlin
+// Replace all of these with whatever the latest version is!
+implementation(includeOrShade("gg.essential:elementa:695")!!)
+if (mcData.minor <= 12) { // mcData is platform if you are using EGT
+    modImplementation(includeOrShade("org.polyfrost:universalcraft-$mcData:2.0.1")!!)
+} else {
+    // include normal universalcraft
+}
+```
+
 # Elementa
 
 Elementa (from the name of the first book published on Geometry by Euclid) is a library
